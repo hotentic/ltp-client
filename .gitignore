@@ -4,6 +4,7 @@
 # node stuff
 node_modules
 *.log
+.nvmrc
 
 # transpiled files
 build/*
@@ -23,3 +24,4 @@ dist
 
 # vscode extensions
 .vscode
+.idea
