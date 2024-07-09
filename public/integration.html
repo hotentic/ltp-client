@@ -131,7 +131,7 @@
             toMarker.remove();
             toLocation = null;
         }
-        fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${e.lngLat.lat},${e.lngLat.lng}&lang=fr-FR&apiKey=0rRgBWPsbCMoLYS5nJkGm8o4lMgY5fnTK-SSFElv_p0`)
+        fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${e.lngLat.lat},${e.lngLat.lng}&lang=fr-FR&apiKey=`)
             .then(resp => resp.json())
             .then(data => {
                 if (data.items.length) {
