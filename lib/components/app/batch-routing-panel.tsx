@@ -111,10 +111,11 @@ class BatchRoutingPanel extends Component<Props> {
 const mapStateToProps = (state: any) => {
   // Show the place shortcuts for OTP-middleware users who have accepted the terms of use
   // and deployments using persistence to localStorage. Don't show shortcuts otherwise.
-  const showUserSettings =
-    getShowUserSettings(state) &&
-    (state.user.loggedInUser?.hasConsentedToTerms ||
-      getPersistenceMode(state.otp.config.persistence).isLocalStorage)
+  // const showUserSettings =
+  //   getShowUserSettings(state) &&
+  //   (state.user.loggedInUser?.hasConsentedToTerms ||
+  //     getPersistenceMode(state.otp.config.persistence).isLocalStorage)
+  const showUserSettings = false
   return {
     activeSearch: getActiveSearch(state),
     showUserSettings

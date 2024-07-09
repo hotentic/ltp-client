@@ -148,14 +148,6 @@ export default function NarrativeItinerariesHeader({
               <FormattedMessage id="components.NarrativeItinerariesHeader.viewAll" />
             </IconWithText>
           </button>
-          {itineraryIsExpanded && (
-            // marginLeft: auto is a way of making something "float right"
-            // within a flex container
-            // see https://stackoverflow.com/a/36182782/269834
-            <div style={{ marginLeft: 'auto' }}>
-              <SaveTripButton />
-            </div>
-          )}
         </>
       ) : (
         <>

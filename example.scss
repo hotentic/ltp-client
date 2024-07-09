@@ -1,0 +1,131 @@
+#ltp_main {
+  height: 100%;
+
+  .otp {
+    height: 100%;
+
+    .navbar {
+      border-radius: 0;
+      background-color: #efefef;
+      margin: 0;
+      color: #030712;
+      border: none;
+    }
+
+    .navbar .container {
+      margin-left: 0;
+    }
+
+    .navbar-brand {
+      padding: 7px 10px;
+
+      button {
+        display: none;
+      }
+
+      a {
+        margin-left: 10px !important;
+      }
+    }
+
+    .navbar-brand .app-menu-icon .menu-line {
+      border-bottom: 3px solid #030712;
+    }
+
+    .navbar-title {
+      font-size: 24px;
+      padding-top: 7px;
+      color: #030712;
+    }
+
+    &.mobile .navbar-title {
+      padding-top: 2px;
+    }
+  }
+
+  /*.otp.mobile .welcome-map {*/
+  /*  top: 0;*/
+  /*  bottom: 120px;*/
+  /*}*/
+
+  /*.otp.mobile .welcome-location {*/
+  /*  bottom: 0;*/
+  /*}*/
+
+  @media (max-width: 768px) {
+    .otp {
+      & > header {
+        height: 50px;
+      }
+
+      & > .container {
+        overflow-y: auto;
+        height: calc(100% - 50px);
+
+        & > .main-row {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          padding: 0;
+
+          & > .sidebar {
+            order: 2;
+            overflow-y: auto;
+            height: calc(100% - 200px);
+          }
+
+          & > .map-container {
+            height: 200px;
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+
+  #view-switcher {
+    display: none;
+  }
+
+  .otp .view-switcher a, .otp .view-switcher a.active {
+    color: inherit;
+  }
+
+  .main-row {
+    position: fixed;
+    top: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0px 15px;
+  }
+
+  /* Necessary for defining the height in the main panel nested elements. */
+  .main-row main {
+    height: 100%;
+  }
+
+  .sidebar {
+    height: 100%;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  .map-container {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .otp form {
+    .from-form-control, .to-form-control {
+      background-color: initial;
+    }
+  }
+
+  .otp.print-layout > .map-container {
+    height: 400px;
+    margin-bottom: 30px;
+  }
+}

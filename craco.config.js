@@ -86,7 +86,7 @@ module.exports = {
       const CUSTOM_CSS =
         (process.env && process.env.CUSTOM_CSS) ||
         backwardsCompatibleEnv.CUSTOM_CSS ||
-        '../example.css'
+        '../example.scss'
       const HTML_FILE =
         (process.env && process.env.HTML_FILE) ||
         backwardsCompatibleEnv.HTML_FILE ||

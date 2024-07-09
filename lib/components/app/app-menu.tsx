@@ -180,14 +180,6 @@ class AppMenu extends Component<
 
     return (
       <>
-        {/* Use a button for skipping navigation. A regular <a href=...> element would modify the URL,
-            and such change would be captured by the router without changing the focused element. */}
-        <button
-          className="skip-nav-button"
-          onClick={this._handleSkipNavigation}
-        >
-          <FormattedMessage id="components.AppMenu.skipNavigation" />
-        </button>
         <button
           aria-controls="app-menu"
           aria-expanded={isPaneOpen}
@@ -210,37 +202,24 @@ class AppMenu extends Component<
           <div className="app-menu" id="app-menu">
             {/* This item is duplicated by the view-switcher, but only shown on mobile
             when the view switcher isn't shown (using css) */}
-            <AppMenuItem
-              className="app-menu-trip-planner-link"
-              icon={<MapMarked />}
-              onClick={this._togglePane}
-              text={intl.formatMessage({
-                id: 'components.BatchRoutingPanel.shortTitle'
-              })}
-              to="/"
-            />
-            {/* This item is duplicated by the view-switcher, but only shown on mobile
-            when the view switcher isn't shown (using css) */}
-            <AppMenuItem
-              className="app-menu-route-viewer-link"
-              icon={<Bus />}
-              onClick={this._togglePane}
-              text={intl.formatMessage({
-                id: 'components.RouteViewer.shortTitle'
-              })}
-              to="/route"
-            />
-            {/* This item is duplicated by the view-switcher, but only shown on mobile
-            when the view switcher isn't shown (using css) */}
-            <AppMenuItem
-              className="app-menu-route-viewer-link"
-              icon={<MapPin />}
-              onClick={this._togglePane}
-              text={intl.formatMessage({
-                id: 'components.ViewSwitcher.nearby'
-              })}
-              to="/nearby"
-            />
+            {/* <AppMenuItem */}
+            {/*  className="app-menu-trip-planner-link" */}
+            {/*  icon={<MapMarked />} */}
+            {/*  onClick={this._togglePane} */}
+            {/*  text={intl.formatMessage({ */}
+            {/*    id: 'components.BatchRoutingPanel.shortTitle' */}
+            {/*  })} */}
+            {/*  to="/" */}
+            {/* /> */}
+            {/* <AppMenuItem */}
+            {/*  className="app-menu-route-viewer-link" */}
+            {/*  icon={<MapPin />} */}
+            {/*  onClick={this._togglePane} */}
+            {/*  text={intl.formatMessage({ */}
+            {/*    id: 'components.ViewSwitcher.nearby' */}
+            {/*  })} */}
+            {/*  to="/nearby" */}
+            {/* /> */}
             <AppMenuItem
               icon={<Undo />}
               onClick={this._startOver}

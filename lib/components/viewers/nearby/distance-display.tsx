@@ -13,7 +13,7 @@ const DistanceDisplay = ({ distance }: { distance?: number }): JSX.Element => {
       <FormattedMessage
         id="components.NearbyView.distanceAway"
         values={{
-          localizedDistanceString: humanizeDistanceString(distance, false, intl)
+          localizedDistanceString: humanizeDistanceString(distance, true, intl)
         }}
       />
     </CardAside>

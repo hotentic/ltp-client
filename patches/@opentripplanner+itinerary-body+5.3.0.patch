@@ -1,0 +1,27 @@
+diff --git a/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-description.js b/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-description.js
+index 202117b..7a4e9e6 100644
+--- a/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-description.js
++++ b/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-description.js
+@@ -91,8 +91,7 @@ export default function AccessLegDescription(_ref) {
+       description: "Summarizes an access leg, including distance",
+       id: "otpUi.AccessLegBody.summaryAndDistance",
+       values: {
+-        // TODO: Implement metric vs imperial (up until now it's just imperial).
+-        distance: humanizeDistanceString(leg.distance, false, intl),
++        distance: humanizeDistanceString(leg.distance, true, intl),
+         mode: modeContent,
+         place: placeContent
+       }
+diff --git a/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-step.js b/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-step.js
+index 4b64c13..dd1b037 100644
+--- a/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-step.js
++++ b/node_modules/@opentripplanner/itinerary-body/esm/defaults/access-leg-step.js
+@@ -99,7 +99,7 @@ export default function AccessLegStep(_ref) {
+     React.createElement("span", {
+       className: className,
+       style: style
+-    }, stepContent, (step === null || step === void 0 ? void 0 : step.distance) > 0 && /*#__PURE__*/React.createElement(S.StepLength, null, humanizeDistanceString(step.distance, false, intl)))
++    }, stepContent, (step === null || step === void 0 ? void 0 : step.distance) > 0 && /*#__PURE__*/React.createElement(S.StepLength, null, humanizeDistanceString(step.distance, true, intl)))
+   );
+ }
+ //# sourceMappingURL=access-leg-step.js.map

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Local Trip Planner - Ardèche</title>
+
+    <base href="/"/>
+
+    <meta name="color-scheme" content="light dark"/>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet"/>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map_container { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+    <style>
+        .modal-window {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        .modal-window.active {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-window > div {
+            width: 80vw;
+            height: 75vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .modal-window header {
+            font-weight: bold;
+        }
+        .modal-window h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .modal-close {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+            &:hover {
+                color: black;
+            }
+        }
+
+        #ltp_wrapper {
+            position: relative;
+        }
+
+        #ltp_close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 3;
+            font-size: 20px;
+            padding: 0;
+            margin: 0 20px;
+            display: inline-block;
+            height: 50px;
+            border: none;
+            background-color: transparent;
+            opacity: 0.5;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .map_popup .maplibregl-popup-content > button {
+            color: black;
+
+            &:first-child {
+                font-size: 16px;
+                margin: 4px;
+                border-radius: 4px;
+                padding: 6px 10px;
+                background-color: #DEDEDE;
+                border: none;
+
+                &:hover {
+                    background-color: #CDCDCD;
+                    cursor: pointer;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div id="map_container"></div>
+<div id="ltp_container" class="modal-window"><div id="ltp_wrapper"><button id="ltp_close" onclick="closeLtp('ltp_container')">Fermer</button></div></div>
+<noscript>Please enable JavaScript to continue using this application.</noscript>
+<script>
+    let toMarker, toLocation, markerHtml;
+    maptilersdk.config.apiKey = '';
+    const map = new maptilersdk.Map({
+        container: 'map_container',
+        style: "streets-v2",
+        center: [4.46, 44.73188778261295],
+        zoom: 8.8,
+    });
+    map.on('click', function(e) {
+        if (toMarker) {
+            toMarker.remove();
+            toLocation = null;
+        }
+        fetch(`https://revgeocode.search.hereapi.com/v1/revgeocode?at=${e.lngLat.lat},${e.lngLat.lng}&lang=fr-FR&apiKey=0rRgBWPsbCMoLYS5nJkGm8o4lMgY5fnTK-SSFElv_p0`)
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.items.length) {
+                    const feat = data.items[0];
+                    toLocation = {lat: feat.position.lat, lon: feat.position.lng, name: feat.title};
+                    markerHtml = '<button type="button" onClick="displayLtp(\'ltp_container\')">Itinéraire</button>';
+                } else {
+                    markerHtml = "<p>Aucune adresse trouvée à proximité de ce point.</p>";
+                }
+                toMarker = new maptilersdk.Popup({className: 'map_popup'})
+                    .setLngLat(e.lngLat)
+                    .setHTML(markerHtml)
+                    .setMaxWidth("300px")
+                    .addTo(map);
+            })
+    });
+
+    function displayLtp(containerId) {
+        const previousLtp = document.querySelector("#ltp_main");
+        if (previousLtp) {
+            previousLtp.remove();
+        }
+        const container = document.querySelector("#" + containerId);
+        container.classList.add("active");
+        const wrapper = container.querySelector("#ltp_wrapper");
+        const main = document.createElement("div");
+        main.setAttribute("id", "ltp_main");
+        wrapper.appendChild(main);
+        const ltpStyles = document.createElement("link");
+        ltpStyles.setAttribute("rel", "stylesheet");
+        ltpStyles.setAttribute("media", "all");
+        ltpStyles.setAttribute("href", "main.css");
+        document.head.appendChild(ltpStyles);
+
+        if (toLocation) {
+            localStorage.setItem('otp.defaultQuery', JSON.stringify({to: toLocation}));
+        }
+
+        const ltpScript = document.createElement("script");
+        ltpScript.setAttribute("src", "bundle.js");
+        document.body.appendChild(ltpScript);
+    }
+
+    function closeLtp(containerId) {
+        const container = document.querySelector("#" + containerId);
+        container.classList.remove("active");
+        const previousLtp = container.querySelector("#ltp_main");
+        if (previousLtp) {
+            previousLtp.remove();
+        }
+        history.replaceState(null, "", "integration.html");
+    }
+</script>
+</body>
+</html>

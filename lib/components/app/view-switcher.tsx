@@ -31,15 +31,15 @@ const ViewSwitcher = ({ sticky }: Props) => {
           : {}
       }
     >
-      <Link to="/" tracking>
-        <FormattedMessage id="components.BatchRoutingPanel.shortTitle" />
-      </Link>
-      <Link to="/route" tracking>
-        <FormattedMessage id="components.RouteViewer.shortTitle" />
-      </Link>
-      <Link to="/nearby" tracking>
-        <FormattedMessage id="components.ViewSwitcher.nearby" />
-      </Link>
+      {/* <Link to="/" tracking> */}
+      {/*  <FormattedMessage id="components.BatchRoutingPanel.shortTitle" /> */}
+      {/* </Link> */}
+      {/* <Link to="/route" tracking> */}
+      {/*  <FormattedMessage id="components.RouteViewer.shortTitle" /> */}
+      {/* </Link> */}
+      {/* <Link to="/nearby" tracking> */}
+      {/*  <FormattedMessage id="components.ViewSwitcher.nearby" /> */}
+      {/* </Link> */}
     </div>
   )
 }

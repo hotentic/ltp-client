@@ -69,7 +69,8 @@ const mapStateToProps = (state: any) => {
   // current query is no search is available.
   const activeSearch: any = getActiveSearch(state)
   const query = activeSearch ? activeSearch.query : state.otp.currentQuery
-  const showUserSettings = getShowUserSettings(state)
+  // const showUserSettings = getShowUserSettings(state)
+  const showUserSettings = false
   const { from, to } = query
   // Intermediate places doesn't trigger a re-plan, so for now default to
   // current query. FIXME: Determine with TriMet if this is desired behavior.
