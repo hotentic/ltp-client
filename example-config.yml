@@ -120,8 +120,7 @@ map:
   baseLayers:
     - name: Streets
       # These tiles are free to use, but not in production
-      url: https://api.maptiler.com/maps/bright-v2/style.json?key=ARsqYXNgDNY5nISZSbWu
-      #      url: https://api.maptiler.com/maps/bright-v2/style.json?key=UQGXcEq7nYklZxftO9vu
+      url: https://api.maptiler.com/maps/bright-v2/style.json?key=
       attribution: 'Map tiles: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       maxZoom: 20
   #    - name: Stamen Toner Lite
