@@ -250,7 +250,8 @@ modes:
   initialState:
     enabledModeButtons: # Mode button keys enabled by default
       - transit
-      - bike
+      - bicycle
+      - car
   # Add additional mode settings to show up in mode selector hover panel
   modeSettingDefinitions:
     # Corresponding mode; if this mode is found in the button's mode list,
@@ -273,15 +274,15 @@ modes:
       label: MAX & Streetcar
     - mode: RAIL
       label: WES
-    - mode: GONDOLA
-      label: Aerial Tram
+#    - mode: GONDOLA
+#      label: Aerial Tram
     ## Additional modes added here will be visible in the mode selector in the UI.
     ## Modes that are not configured here will never be enabled in requests, so if
     ## your network has subways or ferries be sure they are present here.
-    - mode: SUBWAY
-      label: Subway
-    - mode: FERRY
-      label: Ferry
+#    - mode: SUBWAY
+#      label: Subway
+#    - mode: FERRY
+#      label: Ferry
 
   # Potentially deprecated
   accessModes:
