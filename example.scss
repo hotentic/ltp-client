@@ -58,7 +58,11 @@
         display: none;
 
         & + div {
+          top: 10px;
 
+          & + div {
+            inset: 70px 0px 55%;
+          }
         }
       }
 
