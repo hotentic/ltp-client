@@ -56,11 +56,15 @@
     .otp {
       & > header {
         display: none;
+
+        & + div {
+
+        }
       }
 
       & > .container {
         overflow-y: auto;
-        height: calc(100% - 50px);
+        height: 100%;
 
         & > .main-row {
           position: relative;
@@ -68,6 +72,7 @@
           flex-direction: column;
           height: 100%;
           padding: 0;
+          top: 0;
 
           & > .sidebar {
             order: 2;
