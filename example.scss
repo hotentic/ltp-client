@@ -138,13 +138,25 @@
     margin-bottom: 30px;
   }
 
-  #itinerary-menu {
-    & > div  {
-      margin-top: -20px;
+  .itinerary {
+    #itinerary-menu {
+      & > div  {
+        margin-top: -20px;
 
-      & > ul {
-        margin: 0;
+        & > ul {
+          margin: 0;
+        }
+      }
+    }
+
+    &.false {
+      #itinerary-menu {
+        & > div {
+          margin-top: 0;
+          padding-bottom: 20px;
+        }
       }
     }
   }
+
 }
