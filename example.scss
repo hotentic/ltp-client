@@ -55,7 +55,7 @@
   @media (max-width: 768px) {
     .otp {
       & > header {
-        height: 50px;
+        display: none;
       }
 
       & > .container {

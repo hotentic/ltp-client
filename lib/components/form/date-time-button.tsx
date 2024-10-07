@@ -32,7 +32,7 @@ const ButtonWrapper = styled.span`
     cursor: pointer;
     font-size: 12px;
     height: ${buttonPixels}px;
-    padding: 4px 5px;
+    padding: 4px 8px;
     text-align: left;
     transition: all 250ms cubic-bezier(0.27, 0.01, 0.38, 1.06);
     white-space: nowrap;

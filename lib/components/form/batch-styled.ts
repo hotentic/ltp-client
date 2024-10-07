@@ -43,13 +43,13 @@ export const Button = styled.button`
 `
 
 export const PlanTripButton = styled(Button)`
-  background-color: green;
-  color: #ffffffdd;
+  background-color: #1f7a75;
+  color: #ffffff;
   padding: 5px;
 
   &:active {
     ${activeCss}
-    background: green;
+    background: #1f7a75;
     filter: saturate(50%);
   }
 

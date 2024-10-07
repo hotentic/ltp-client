@@ -11,6 +11,7 @@
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="msapplication-tap-highlight" content="no"/>
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://ltp.ardeche.apitour.fr"/>
     <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
     <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet"/>
     <style>
@@ -146,7 +147,7 @@
                     .setHTML(markerHtml)
                     .setMaxWidth("300px")
                     .addTo(map);
-            })
+            });
     });
 
     function displayLtp(containerId) {
@@ -157,22 +158,27 @@
         const container = document.querySelector("#" + containerId);
         container.classList.add("active");
         const wrapper = container.querySelector("#ltp_wrapper");
-        const main = document.createElement("div");
+        const main = document.createElement("iframe");
         main.setAttribute("id", "ltp_main");
+        main.setAttribute("allow", "geolocation");
+        main.setAttribute("style", "width: 100%; height: 100%; border: none;");
+        main.setAttribute("src", "https://ltp.ardeche.apitour.fr/#/?ui_activeSearch=&fromPlace=Aubenas%2C%20Auvergne-Rh%C3%B4ne-Alpes%2C%20France%3A%3A44.61975%2C4.38822&toPlace=Privas%2C%20Auvergne-Rh%C3%B4ne-Alpes%2C%20France%3A%3A44.73471%2C4.59783&date=2024-10-07&time=09%3A12&arriveBy=false&mode=WALK%2CTRANSIT&numItineraries=3&modeButtons=transit_bike_bicycle_car")
+      // https://ltp.ardeche.apitour.fr/#/?ui_activeSearch=&fromPlace=Aubenas%2C%20Auvergne-Rh%C3%B4ne-Alpes%2C%20France%3A%3A44.61975%2C4.38822&toPlace=Privas%2C%20Auvergne-Rh%C3%B4ne-Alpes%2C%20France%3A%3A44.73471%2C4.59783&date=2024-10-07&time=09%3A12&arriveBy=false&mode=WALK%2CTRANSIT&numItineraries=3&modeButtons=transit_bike_bicycle_car
+      // fromPlace=Aubenas, Auvergne-Rhône-Alpes, France::44.61975,4.38822&toPlace=Privas, Auvergne-Rhône-Alpes, France::44.73471,4.59783&date=2024-10-07&time=09:12&arriveBy=false&mode=WALK,TRANSIT&numItineraries=3&modeButtons=transit_bike_bicycle_car
         wrapper.appendChild(main);
-        const ltpStyles = document.createElement("link");
-        ltpStyles.setAttribute("rel", "stylesheet");
-        ltpStyles.setAttribute("media", "all");
-        ltpStyles.setAttribute("href", "main.css");
-        document.head.appendChild(ltpStyles);
-
-        if (toLocation) {
-            localStorage.setItem('otp.defaultQuery', JSON.stringify({to: toLocation}));
-        }
-
-        const ltpScript = document.createElement("script");
-        ltpScript.setAttribute("src", "bundle.js");
-        document.body.appendChild(ltpScript);
+        // const ltpStyles = document.createElement("link");
+        // ltpStyles.setAttribute("rel", "stylesheet");
+        // ltpStyles.setAttribute("media", "all");
+        // ltpStyles.setAttribute("href", "main.css");
+        // document.head.appendChild(ltpStyles);
+        //
+        // if (toLocation) {
+        //     localStorage.setItem('otp.defaultQuery', JSON.stringify({to: toLocation}));
+        // }
+        //
+        // const ltpScript = document.createElement("script");
+        // ltpScript.setAttribute("src", "bundle.js");
+        // document.body.appendChild(ltpScript);
     }
 
     function closeLtp(containerId) {
