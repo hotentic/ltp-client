@@ -400,7 +400,7 @@ components:
     NO_STOPS_IN_RANGE:
       body: >-
         {inputFieldsCount, plural, =0 {} one {Votre {inputFields} est trop loin}
-        other {Vos {inputFields} sont trop loins}} des transports.
+        other {Vos {inputFields} sont trop loins}} des transports en commun.
       header: Aucun arrêt a proximité
     NO_TRANSIT_CONNECTION:
       body: >-

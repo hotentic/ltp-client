@@ -1,5 +1,6 @@
 #ltp_main {
   height: 100%;
+  background-color: #F3F4F6;
 
   .otp {
     height: 100%;
@@ -145,6 +146,36 @@
 
         & > ul {
           margin: 0;
+          background-color: #E5E7EB;
+
+          & > li {
+            grid-template-columns: 1fr 6fr;
+
+            h3 {
+              display: none;
+            }
+
+            p {
+              margin: 10px 0 0 0;
+            }
+
+            & > span {
+              svg {
+                font-size: 1.5em;
+              }
+            }
+          }
+        }
+      }
+
+      .result {
+        .itin-wrapper-small {
+          .route-block-wrapper {
+            svg {
+              width: 40px;
+              fill: #1f7a75;
+            }
+          }
         }
       }
     }
