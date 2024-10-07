@@ -91,6 +91,14 @@
           }
         }
       }
+
+      .location-search {
+        top: 0;
+
+        & > [role='group'] {
+          background-color: white;
+        }
+      }
     }
   }
 
@@ -141,28 +149,28 @@
 
   .itinerary {
     #itinerary-menu {
-      & > div  {
+      & > div {
         margin-top: -20px;
+      }
 
-        & > ul {
-          margin: 0;
-          background-color: #E5E7EB;
+      & > ul:first-child {
+        margin: 0;
+        background-color: #E5E7EB;
 
-          & > li {
-            grid-template-columns: 1fr 6fr;
+        & > li {
+          grid-template-columns: 1fr 6fr;
 
-            h3 {
-              display: none;
-            }
+          h3 {
+            display: none;
+          }
 
-            p {
-              margin: 10px 0 0 0;
-            }
+          p {
+            margin: 10px 0 0 0;
+          }
 
-            & > span {
-              svg {
-                font-size: 1.5em;
-              }
+          & > span {
+            svg {
+              font-size: 1.5em;
             }
           }
         }
