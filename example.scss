@@ -101,9 +101,22 @@
       }
 
       .batch-search-settings {
+        top: calc(100vh - 176px);
+        height: 176px;
+
         & > [role='group'] {
           background-color: white;
         }
+      }
+
+      .batch-search-map {
+        top: 0;
+        bottom: 176px;
+      }
+
+      ul#from-listbox li {
+        padding-left: 10px;
+        padding-right: 10px;
       }
     }
   }
@@ -157,6 +170,15 @@
     #itinerary-menu {
       & > div {
         margin-top: -20px;
+
+        &.percy-hide {
+          margin-top: 20px;
+
+          svg {
+            font-size: 4em;
+            color: #dd5928;
+          }
+        }
       }
 
       & > ul:first-child {
@@ -188,7 +210,6 @@
           .route-block-wrapper {
             svg {
               width: 40px;
-              fill: #1f7a75;
             }
           }
         }
