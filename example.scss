@@ -107,6 +107,21 @@
         & > [role='group'] {
           background-color: white;
         }
+
+        div[aria-labelledby='date-time-settings-label'] {
+          bottom: 59px;
+          top: auto !important;
+          z-index: 100001;
+
+          & > div:first-child {
+            top: auto !important;
+            bottom: -5px;
+          }
+
+          .main-panel {
+            padding-top: 15px;
+          }
+        }
       }
 
       .batch-search-map {
