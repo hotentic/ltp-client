@@ -352,6 +352,7 @@ components:
     searching: Recherche...
     selectArrivalTime: Heure d'arrivée
     selectBest: Meilleure option
+    selectCo2: Émissions de CO²
     selectCost: Prix
     selectDepartureTime: Heure de départ
     selectDuration: Durée

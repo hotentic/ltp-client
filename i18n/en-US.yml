@@ -335,6 +335,7 @@ components:
     searching: Finding your options...
     selectArrivalTime: Arrival time
     selectBest: Best option
+    selectCo2: CO² emissions
     selectCost: Cost
     selectDepartureTime: Departure time
     selectDuration: Duration
