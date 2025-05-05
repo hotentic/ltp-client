@@ -12,9 +12,9 @@ type Props = {
 }
 
 const NearbyDot = styled.div<{ invisible: boolean }>`
-  background: var(--main-base-color, ${DARK_TEXT_GREY});
+  background: var(--ltp-main-color, ${DARK_TEXT_GREY});
   border-radius: 30px;
-  box-shadow: 0px 0px 10px 10px var(--main-base-color, ${DARK_TEXT_GREY});
+  box-shadow: 0px 0px 10px 10px var(--ltp-main-color, ${DARK_TEXT_GREY});
   cursor: pointer;
   display: block;
   height: 50px;

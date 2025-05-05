@@ -8,7 +8,7 @@ const { blue, grey, red } = colors
  */
 export const getBaseColor = (): string => {
   return getComputedStyle(document.documentElement).getPropertyValue(
-    '--main-base-color'
+    '--ltp-main-color'
   )
 }
 

@@ -54,7 +54,7 @@ const mapStateToProps = (state: AppReduxState) => {
 
   const highlightedStopColor = getComputedStyle(
     document.documentElement
-  ).getPropertyValue('--main-base-color')
+  ).getPropertyValue('--ltp-main-color')
 
   return {
     highlightedStop,

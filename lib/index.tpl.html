@@ -10,19 +10,37 @@
     <!-- Note: title should be supplied/injected via config.yml -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      const paramsString = window.location.href.split('?')[1];
+      const searchParams = new URLSearchParams(paramsString);
+      if (searchParams.has('config')) {
+        console.log('has config: ' + atob(searchParams.get('config')));
+        const cfg = JSON.parse(atob(searchParams.get('config')));
+        const fontFamily = cfg.font || 'Roboto';
+        document.querySelector("head").insertAdjacentHTML('beforeend',
+          `<link href="https://fonts.googleapis.com/css?family=${fontFamily}:300,400,500,600,700" rel="stylesheet">
+           <style>html > body {font-family: '${fontFamily}', sans-serif;} :root {--ltp-main-color: ${cfg.main || ''}; --ltp-alt-color: ${cfg.alt || ''};}</style>`
+        );
+      } else {
+        document.querySelector("head").insertAdjacentHTML('beforeend',
+          `<link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+           <style>html > body {font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;} :root {--ltp-main-color: #dd5928; --ltp-alt-color: #1f7a75;}</style>`
+        );
+      }
 
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
-    <title>LocalTripPlanner</title>
+    </script>
+<!--    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">-->
+    <title>Votre trajet</title>
     <style>
       html, body {
           height: 100%;
           padding: 0;
-          font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+          //font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
       }
 
-      :root {
-          --main-base-color: #dd5928;
-      }
+      //:root {
+      //    --main-base-color: #dd5928;
+      //}
     </style>
   </head>
   <body>

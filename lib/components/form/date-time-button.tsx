@@ -25,10 +25,10 @@ const ButtonWrapper = styled.span`
   position: relative;
 
   & > button {
-    background-color: var(--main-base-color, rgba(0, 0, 0, 0.5));
+    background-color: var(--ltp-main-color, rgba(0, 0, 0, 0.5));
     border-radius: 5px;
     border: none;
-    color: var(--main-color, white);
+    color: var(--ltp-light-color, white);
     cursor: pointer;
     font-size: 12px;
     height: ${buttonPixels}px;

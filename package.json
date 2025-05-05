@@ -1,6 +1,6 @@
 {
   "name": "ltp-client",
-  "description": "Local Trip Planner client - A library for writing modern OpenTripPlanner-compatible multimodal journey planning web applications using React and Redux",
+  "description": "Local Trip Planner client",
   "main": "build/index.js",
   "scripts": {
     "a11y-test": "jest a11y/ --runInBand --force-exit",
